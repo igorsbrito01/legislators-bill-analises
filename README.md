@@ -25,3 +25,6 @@ To run the tests execute
 ```
 $ pytest <file_name>
 ```
+
+## Output files
+The files with the votes count are 'bills-support-oppose-count.csv' and 'legislators-support-oppose-count.csv' 

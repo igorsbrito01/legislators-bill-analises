@@ -1,0 +1,34 @@
+1. Discuss your solution’s time complexity. What tradeoffs did you make?
+Answer: The complexity of both votes count(legislator vote count and bill vote count) is O(n) a linear time complexity.
+We have this linear time, because when we need to merge data from another data structure to another one,
+I use a Python dictionary, to reach the required data, and as we can see here: https://wiki.python.org/moin/TimeComplexity,
+the time complexity of a get in a dictionary on average is O(1), so it doesn't increase the complexity.
+The tradeoff of this solution is that the dictionary allocate more memory, so we increase the memory usage from the machine.
+
+I not processing this csv data before using it to remove weird and unexpected values.
+If we add it, we would use more memory and maybe increase the time complexity.
+
+2. How would you change your solution to account for future columns that might be requested, such as “Bill Voted On Date” or “Co-Sponsors”?
+Answer: I would change the files 'count_bills_votes.py' and 'count_legislators_votes.py' 
+where the business rules of the project are, to take into account the new values. for example:
+If I have to calculate only the bill voted in a specific date range, I would change the count_bills_votes.py: calculate_votes_per_bill function 
+and check the data range to ignore the vote or not.
+Same thing for the co-sponsor data, I would change the count_bills_votes.py: create_count_votes_bill_structure function
+adding the new row data inside the array of bills data.
+
+3. How would you change your solution if instead of receiving CSVs of data, you were given a
+list of legislators or bills that you should generate a CSV for?
+Answer: The change that I should do is not use the read_csv function and create a generator for the lists, 
+in a way that I can use the generetor to pass it as parameter to the functions at 
+'count_bills_votes.py' and 'count_legislators_votes.py' files. For example:
+list_legislators = [[<id>, <legislator_name>], ......, [<id>, <legislator_name>]]
+
+def legislator_generator(list_legislators):
+    for item in list_legislators:
+        yield item
+
+reader = legislator_generator(list_legislators)
+legislators_dict = get_legislators_name(reader)
+
+4. How long did you spend working on the assignment?
+Answer: About 3 hours

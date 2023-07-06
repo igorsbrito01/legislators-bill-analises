@@ -1,6 +1,7 @@
 import csv
 from typing import List, Any, Callable
 
+
 def read_csv(file_name: str, executor: Callable, *args, **kawrgs) -> Any:
     result = None
     with open(file_name, "r") as file:

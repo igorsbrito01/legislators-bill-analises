@@ -64,8 +64,8 @@ def get_votes_bill_ids(reader) -> Dict[str, str]:
 
 
 def calculate_votes_per_bill(
-    reader, votes_ids_dict, bills_count_votes_dict={}
-) -> Dict[str, List[str]]:
+    reader, votes_ids_dict:  Dict[str, str], bills_count_votes_dict: Dict[str, List[Union[str, int]]] ={}
+) -> Dict[str, List[Union[str, int]]]:
     next(reader)
     for row in reader:
         bill_id = votes_ids_dict[row[2]]

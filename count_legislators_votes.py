@@ -47,8 +47,8 @@ def calculate_total_votes(
             row[1], ["Unknow", 0, 0]
         )
         if row[3] == "1":
-            legislators_count_votes[row[1]][1] =+ 1
+            legislators_count_votes[row[1]][1] += 1
         elif row[3] == "2":
-            legislators_count_votes[row[1]][2] =+ 1
+            legislators_count_votes[row[1]][2] += 1
 
     return legislators_count_votes
